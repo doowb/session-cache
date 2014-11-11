@@ -1,0 +1,38 @@
+{
+  "name": "session-cache",
+  "description": "Session storage for tasks.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/doowb/session-cache",
+  "author": {
+    "name": "Brian Woodward",
+    "url": "https://github.com/doowb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/doowb/session-cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/doowb/session-cache/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/doowb/session-cache/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "^4.3.0",
+    "verb": "^0.3.0"
+  },
+  "dependencies": {
+    "continuation-local-storage": "^3.1.1"
+  }
+}
