@@ -19,22 +19,6 @@ var storage = require('./lib/storage');
 
 var cache = require('./lib/cache');
 
-/**
- * Set a heuristic for determining if the session
- * is actually active.
- *
- * @return {Boolean} Returns `true` if session is active
- * @api private
- */
-
-var isActive = function isActive() {
-  try {
-    var key = '___session is active___';
-    return session.get(key) || session.set(key, true);
-  } catch (err) {
-    return false;
-  }
-};
 
 /**
  * Create a session with the given `name`
@@ -51,6 +35,23 @@ var isActive = function isActive() {
 
 module.exports = function createSession(name) {
   var session = storage.get(name) || storage.create(name);
+  
+  /**
+   * Set a heuristic for determining if the session
+   * is actually active.
+   *
+   * @return {Boolean} Returns `true` if session is active
+   * @api private
+   */
+
+  var isActive = function isActive() {
+    try {
+      var key = '___session is active___';
+      return session.get(key) || session.set(key, true);
+    } catch (err) {
+      return false;
+    }
+  };
 
   /**
    * Create a context to run in.
