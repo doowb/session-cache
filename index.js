@@ -35,7 +35,7 @@ var cache = require('./lib/cache');
 
 module.exports = function createSession(name) {
   var session = storage.get(name) || storage.create(name);
-  
+
   /**
    * Set a heuristic for determining if the session
    * is actually active.
@@ -61,6 +61,20 @@ module.exports = function createSession(name) {
    */
 
   exports.run = session.run.bind(session);
+
+  /**
+   * Bind an EventEmitter or Stream to the current Session context.
+   *
+   * ```js
+   * var stream = through.obj();
+   * sessin.bindEmitter(stream);
+   * ```
+   *
+   * @param {EventEmitter|Stream} `emitter` EventEmitter or Stream to bind.
+   * @api public
+   */
+
+  exports.bindEmitter = session.bindEmitter.bind(session);
 
   /**
    * Assign `value` on the current session to `key`.
