@@ -1,7 +1,7 @@
 {
   "name": "session-cache",
   "description": "Session storage for tasks.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/doowb/session-cache",
   "author": {
     "name": "Brian Woodward",
