@@ -63,11 +63,27 @@ module.exports = function createSession(name) {
   exports.run = session.run.bind(session);
 
   /**
+   * Bind a function to the current Session context.
+   *
+   * ```js
+   * function fn (options, next) {
+   *   next();
+   * }
+   * session.bind(fn);
+   * ```
+   *
+   * @param {Function} `fn` Function to bind.
+   * @api public
+   */
+
+  exports.bind = session.bind.bind(session);
+
+  /**
    * Bind an EventEmitter or Stream to the current Session context.
    *
    * ```js
    * var stream = through.obj();
-   * sessin.bindEmitter(stream);
+   * session.bindEmitter(stream);
    * ```
    *
    * @param {EventEmitter|Stream} `emitter` EventEmitter or Stream to bind.

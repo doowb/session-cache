@@ -35,7 +35,20 @@ Create a session with the given `name`
 var session = require('session')('your app');
 ```
 
-### [.bindEmitter](index.js#L77)
+### [.bind](index.js#L79)
+
+Bind a function to the current Session context.
+
+* `fn` **{Function}**: Function to bind.    
+
+```js
+function fn (options, next) {
+  next();
+}
+session.bind(fn);
+```
+
+### [.bindEmitter](index.js#L93)
 
 Bind an EventEmitter or Stream to the current Session context.
 
@@ -43,10 +56,10 @@ Bind an EventEmitter or Stream to the current Session context.
 
 ```js
 var stream = through.obj();
-sessin.bindEmitter(stream);
+session.bindEmitter(stream);
 ```
 
-### [.set](index.js#L88)
+### [.set](index.js#L104)
 
 * `key` **{String}**    
 * `value` **{*}**    
@@ -54,7 +67,7 @@ sessin.bindEmitter(stream);
 
 Assign `value` on the current session to `key`.
 
-### [.get](index.js#L103)
+### [.get](index.js#L119)
 
 * `key` **{String}**    
 * `returns` **{*}**: Value of the key or undefined  
