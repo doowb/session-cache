@@ -1,4 +1,4 @@
-# session-cache [![NPM version](https://badge.fury.io/js/session-cache.svg)](http://badge.fury.io/js/session-cache)  [![Build Status](https://travis-ci.org/doowb/session-cache.svg)](https://travis-ci.org/doowb/session-cache) 
+# session-cache [![NPM version](https://badge.fury.io/js/session-cache.svg)](http://badge.fury.io/js/session-cache)
 
 > Session storage for tasks.
 
@@ -6,13 +6,6 @@
 
 ```bash
 npm i session-cache --save
-```
-
-## Running tests
-Install dev dependencies.
-
-```bash
-npm i -d && npm test
 ```
 
 ## Usage
