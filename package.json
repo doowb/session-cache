@@ -14,12 +14,8 @@
   "bugs": {
     "url": "https://github.com/doowb/session-cache/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/doowb/session-cache/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
+  "file": ["index.js", "lib/"],
   "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
