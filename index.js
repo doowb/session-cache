@@ -1,8 +1,8 @@
 /*!
  * session-cache <https://github.com/doowb/session-cache>
  *
- * Copyright (c) 2014 Brian Woodward
- * Licensed under the MIT license.
+ * Copyright (c) 2014-2015, Brian Woodward.
+ * Licensed under the MIT License.
  */
 
 'use strict';
@@ -35,6 +35,9 @@ var cache = require('./lib/cache');
 
 module.exports = function createSession(name) {
   var session = storage.get(name) || storage.create(name);
+  var res = {
+    name: session.name
+  };
 
   /**
    * Set a heuristic for determining if the session
@@ -60,7 +63,7 @@ module.exports = function createSession(name) {
    * @api private
    */
 
-  exports.run = session.run.bind(session);
+  res.run = session.run.bind(session);
 
   /**
    * Bind a function to the current Session context.
@@ -76,7 +79,7 @@ module.exports = function createSession(name) {
    * @api public
    */
 
-  exports.bind = session.bind.bind(session);
+  res.bind = session.bind.bind(session);
 
   /**
    * Bind an EventEmitter or Stream to the current Session context.
@@ -90,7 +93,7 @@ module.exports = function createSession(name) {
    * @api public
    */
 
-  exports.bindEmitter = session.bindEmitter.bind(session);
+  res.bindEmitter = session.bindEmitter.bind(session);
 
   /**
    * Assign `value` on the current session to `key`.
@@ -101,7 +104,7 @@ module.exports = function createSession(name) {
    * @api public
    */
 
-  exports.set = function set(key, value) {
+  res.set = function set(key, value) {
     if (isActive()) {
       return session.set(key, value);
     }
@@ -116,12 +119,12 @@ module.exports = function createSession(name) {
    * @api public
    */
 
-  exports.get = function get(key) {
+  res.get = function get(key) {
     if (isActive()) {
       return session.get(key);
     }
     return cache.get(key);
   };
 
-  return exports;
+  return res;
 };

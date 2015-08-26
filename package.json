@@ -15,19 +15,26 @@
     "url": "https://github.com/doowb/session-cache/issues"
   },
   "license": "MIT",
-  "file": ["index.js", "lib/"],
+  "files": [
+    "index.js",
+    "lib/"
+  ],
   "main": "index.js",
   "engines": {
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha -R spec"
+    "test": "mocha"
+  },
+  "dependencies": {
+    "continuation-local-storage": "^3.1.1"
   },
   "devDependencies": {
     "mocha": "*",
     "should": "^4.3.0"
   },
-  "dependencies": {
-    "continuation-local-storage": "^3.1.1"
-  }
+  "file": [
+    "index.js",
+    "lib/"
+  ]
 }
